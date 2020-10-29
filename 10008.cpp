@@ -37,18 +37,25 @@ int set3(int t)
 int main()
 {
     memset(s,' ',sizeof(s));//全赋值为空格 
-    s[1][2] = '\0';
+    
     s[0][0] = 'X';
     sett(1,2);
+    int lastX;
     while(~scanf("%d",&n) && n != -1)
     {
         int d = set3(n - 1);
         for(int i = 0;i < d;i ++)
         {
-            for(int j = 0;j < d;j ++)
+            for(int j = 0;j < d/2;j ++)
             {
                 putchar(s[i][j]);
             }
+            for(int j=d/2;j<d;j++){
+            	if(s[i][j]=='X')lastX=j;
+			}
+			for(int j=d/2;j<=lastX;j++){
+            	putchar(s[i][j]);
+			}
             putchar('\n');
         }
         printf("-\n");
